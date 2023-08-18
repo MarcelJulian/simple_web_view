@@ -59,22 +59,8 @@ class _WebViewStackState extends State<WebViewStack> {
                 .setController(widget.controller);
 
             return WebViewWidget(
-              controller: widget.controller,
-              gestureRecognizers: {Factory(() => dragGesturePullToRefresh)},
-              // gestureRecognizers: Set()
-              //   ..add(
-              //     Factory<VerticalDragGestureRecognizer>(
-              //         () => VerticalDragGestureRecognizer()
-              //           ..onDown = (DragDownDetails dragDownDetails) {
-              //             widget.controller.getScrollPosition().then((value) {
-              //               if (value.dy == 0 &&
-              //                   dragDownDetails.globalPosition.direction < 1) {
-              //                 widget.controller.reload();
-              //               }
-              //             });
-              //           }),
-              //   )
-            );
+                controller: widget.controller,
+                gestureRecognizers: {Factory(() => dragGesturePullToRefresh)});
           }),
         ),
         if (loadingPercentage < 100)

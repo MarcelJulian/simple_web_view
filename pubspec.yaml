@@ -9,6 +9,8 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  introduction_screen: ^3.1.11
+  shared_preferences: ^2.2.0
   webview_flutter: ^4.2.2
 
 dev_dependencies:
@@ -18,3 +20,7 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+  assets:
+    - assets/Step_1.png
+    - assets/Step_2.png
+    - assets/Step_3.png
