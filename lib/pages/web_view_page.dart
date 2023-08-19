@@ -19,7 +19,7 @@ class _WebViewPageState extends State<WebViewPage> {
 // dawedat373@touchend.com
     controller = WebViewController()
       ..loadRequest(
-        Uri.parse('https://dashboard.siapjadiasn.com/'),
+        Uri.parse('https://m.dashboard.siapjadiasn.com/'),
       )
       ..setJavaScriptMode(JavaScriptMode.unrestricted);
   }
@@ -34,36 +34,12 @@ class _WebViewPageState extends State<WebViewPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      children: [
-        FutureBuilder(
-          future: Future.value(true),
-          // future: Future.delayed(const Duration(seconds: 2), () => true),
-          builder: (BuildContext context, AsyncSnapshot<void> snap) {
-            //If we do not have data as we wait for the future to complete,
-            //show any widget, eg. empty Container
-            if (!snap.hasData) {
-              return Container();
-            }
-
-            //Otherwise the future completed, so we can now safely use the controller.page
-            return WillPopScope(
-              onWillPop: _onBackPressed,
-              child: Scaffold(
-                appBar: AppBar(toolbarHeight: 0),
-                body: WebViewStack(controller: controller),
-              ),
-            );
-          },
-        ),
-        // WillPopScope(
-        //   onWillPop: _onBackPressed,
-        //   child: Scaffold(
-        //     appBar: AppBar(toolbarHeight: 0),
-        //     body: WebViewStack(controller: controller),
-        //   ),
-        // ),
-      ],
+    return WillPopScope(
+      onWillPop: _onBackPressed,
+      child: Scaffold(
+        appBar: AppBar(toolbarHeight: 0),
+        body: WebViewStack(controller: controller),
+      ),
     );
   }
 }

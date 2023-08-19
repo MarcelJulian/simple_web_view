@@ -1,5 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:introduction_screen/introduction_screen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:simple_web_view/pages/web_view_page.dart';
@@ -45,17 +46,30 @@ class OnBoardingPageState extends State<OnBoardingPage> {
     );
   }
 
+  Widget _buildTitle(String text) {
+    return Padding(
+      padding: const EdgeInsets.only(top: 60),
+      child: Text(text,
+          textAlign: TextAlign.center,
+          style: GoogleFonts.raleway(
+              textStyle: const TextStyle(
+                  fontWeight: FontWeight.w800,
+                  color: Color(0xFF0e6ae1),
+                  fontSize: 24))),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     const bodyStyle = TextStyle(fontSize: 19.0);
 
     const pageDecoration = PageDecoration(
-      titleTextStyle: TextStyle(fontSize: 28.0, fontWeight: FontWeight.w700),
-      bodyTextStyle: bodyStyle,
-      bodyPadding: EdgeInsets.fromLTRB(16.0, 0.0, 16.0, 16.0),
-      pageColor: Colors.white,
-      imagePadding: EdgeInsets.zero,
-    );
+        titleTextStyle: TextStyle(fontSize: 24.0, fontWeight: FontWeight.w800),
+        bodyTextStyle: bodyStyle,
+        bodyPadding: EdgeInsets.fromLTRB(16.0, 0.0, 16.0, 16.0),
+        pageColor: Colors.white,
+        imagePadding: EdgeInsets.zero,
+        imageFlex: 2);
 
     return IntroductionScreen(
       key: introKey,
@@ -83,19 +97,24 @@ class OnBoardingPageState extends State<OnBoardingPage> {
       // ),
       pages: [
         PageViewModel(
-          title: "Aplikasi yang bantu kamu lulus menjadi ASN 2023.",
+          titleWidget:
+              _buildTitle('Aplikasi yang bantu kamu lulus menjadi ASN 2023.'),
+          // title: "",
           body: "",
           image: _buildImage('Step_1.png'),
           decoration: pageDecoration,
         ),
         PageViewModel(
-          title: "Semua yang kamu butuhkan dalam satu genggaman.",
+          titleWidget:
+              _buildTitle('Semua yang kamu butuhkan dalam satu genggaman.'),
+          // title: "",
           body: "",
           image: _buildImage('Step_2.png'),
           decoration: pageDecoration,
         ),
         PageViewModel(
-          title: "Raih Top Skor dan jadilah pemenang!",
+          titleWidget: _buildTitle('Raih Top Skor dan jadilah pemenang!'),
+          // title: "",
           body: "",
           image: _buildImage('Step_3.png'),
           decoration: pageDecoration,
@@ -166,21 +185,24 @@ class OnBoardingPageState extends State<OnBoardingPage> {
       showBackButton: false,
       //rtl: true, // Display as right-to-left
       back: const Icon(Icons.arrow_back, color: Color(0xFF0e6ae1)),
-      skip: const Text('Lewati',
-          style:
-              TextStyle(fontWeight: FontWeight.w600, color: Color(0xFF0e6ae1))),
-      next: const Row(
-        children: [
-          Text('Lanjut',
-              style: TextStyle(
-                  fontWeight: FontWeight.w600, color: Color(0xFF0e6ae1))),
-          // SizedBox(width: 4),
-          // Icon(Icons.arrow_forward, color: Color(0xFF0e6ae1))
-        ],
-      ),
-      done: const Text('Done',
-          style:
-              TextStyle(fontWeight: FontWeight.w600, color: Color(0xFF0e6ae1))),
+      skip: Text('Lewati',
+          style: GoogleFonts.raleway(
+              textStyle: const TextStyle(
+                  fontWeight: FontWeight.w600, color: Color(0xFF0e6ae1)))),
+      next: Text('Lanjut',
+          style: GoogleFonts.raleway(
+              textStyle: const TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.w600,
+                  color: Color(0xFF0e6ae1)))),
+      // SizedBox(width: 4),
+      // Icon(Icons.arrow_forward, color: Color(0xFF0e6ae1))
+      done: Text('Done',
+          style: GoogleFonts.raleway(
+              textStyle: const TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.w600,
+                  color: Color(0xFF0e6ae1)))),
       curve: Curves.fastLinearToSlowEaseIn,
       controlsMargin: const EdgeInsets.all(16),
       controlsPadding: kIsWeb

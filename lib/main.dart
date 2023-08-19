@@ -7,8 +7,8 @@ import 'pages/on_boarding_page.dart';
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   final SharedPreferences prefs = await SharedPreferences.getInstance();
-  // var hasSeenOnboarding = prefs.getBool("hasSeenOnboarding") ?? false;
-  var hasSeenOnboarding = false;
+  var hasSeenOnboarding = prefs.getBool("hasSeenOnboarding") ?? false;
+  // var hasSeenOnboarding = false;
   runApp(
     MaterialApp(
       theme: ThemeData(useMaterial3: true),
