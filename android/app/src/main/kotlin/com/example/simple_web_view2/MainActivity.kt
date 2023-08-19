@@ -1,4 +1,4 @@
-package com.example.simple_web_view
+package com.moorid.siapJadiAsn
 
 import io.flutter.embedding.android.FlutterActivity
 
