@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:simple_web_view/pages/web_view_page.dart';
+import 'package:siapJadiAsn/pages/web_view_page.dart';
 
 import 'pages/on_boarding_page.dart';
 
