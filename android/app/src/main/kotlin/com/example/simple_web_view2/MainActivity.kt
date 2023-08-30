@@ -1,4 +1,4 @@
-package com.siapJadiAsn
+package com.moorid.siapJadiAsn
 
 import io.flutter.embedding.android.FlutterActivity
 
